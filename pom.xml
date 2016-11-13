@@ -1,0 +1,36 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>train-ticket</groupId>
+    <version>1.0</version>
+    <artifactId>train-ticket</artifactId>
+    <packaging>pom</packaging>
+    <name>project</name>
+    <modules>
+        <module>train-ticket-service</module>
+        <module>train-ticket-ear</module>
+        <!--<module>train-ticket-ws-client</module>-->
+        <module>train-ticket-rest</module>
+        <!--<module>train-ticket-rest-client</module>-->
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+               </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>train-ticket-service</artifactId>
+                <groupId>train-ticket</groupId>
+                <version>1.0</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
