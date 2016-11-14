@@ -1,18 +1,21 @@
 package com.epam.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Sergey_Stefoglo on 10/27/2016.
  */
 @XmlRootElement
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "numberTicket",
@@ -23,8 +26,8 @@ import java.util.Date;
         "costTicket",
         "statusTicket",
         "human"})
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Ticket {
+//@JsonIgnoreProperties(ignoreUnknown = true)
+public class Ticket  implements Serializable {
 
     private Integer numberTicket;
 

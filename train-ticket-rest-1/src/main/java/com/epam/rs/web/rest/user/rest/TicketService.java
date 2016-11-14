@@ -1,6 +1,6 @@
-package com.epam.rest;
+package com.epam.rs.web.rest.user.rest;
 
-import com.epam.ticket.ejb.Ticket;
+import com.epam.rs.web.rest.user.ejb.Ticket;
 
 import javax.ws.rs.core.Response;
 import java.util.HashMap;

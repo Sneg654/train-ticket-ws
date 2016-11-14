@@ -1,22 +1,26 @@
 package com.epam.entity;
 
+
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Sergey_Stefoglo on 10/27/2016.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
+
 @XmlType(name = "", propOrder = {
         "lastName",
         "firstName",
         "midlleName",
         "birthday"  })
 @XmlRootElement
-public class Human {
+public class Human implements Serializable {
 
     private String lastName;
 

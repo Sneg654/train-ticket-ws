@@ -1,23 +1,22 @@
-package com.epam.rest;
+package com.epam.rs.web.rest.user.rest;
 
-import com.epam.ticket.ejb.Ticket;
+import com.epam.rs.web.rest.user.ejb.Ticket;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-
 @Path("/TicketJSONService")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class TicketRsJSONService extends TicketService {
+public class TicketJSONService extends TicketService {
 
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     @Path("/getTicket/{id}")
-    public Ticket getTicket(@PathParam("id") Integer id) {
+     public Ticket getTicket(@PathParam("id") Integer id) {
         return tickets.get(id);
     }
 

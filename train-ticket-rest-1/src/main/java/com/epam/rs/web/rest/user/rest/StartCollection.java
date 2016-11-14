@@ -1,7 +1,8 @@
-package com.epam.rest;
+package com.epam.rs.web.rest.user.rest;
 
-import com.epam.ticket.ejb.Human;
-import com.epam.ticket.ejb.Ticket;
+import com.epam.rs.web.rest.user.ejb.Ticket;
+import com.epam.rs.web.rest.user.ejb.Human;
+
 
 import java.util.Date;
 import java.util.Map;

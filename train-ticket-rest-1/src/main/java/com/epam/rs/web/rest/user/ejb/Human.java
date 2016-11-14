@@ -1,19 +1,21 @@
-package com.epam.ticket.ejb;
+package com.epam.rs.web.rest.user.ejb;
 
 import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Sergey_Stefoglo on 10/27/2016.
  */
+
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "lastName",
         "firstName",
         "midlleName",
         "birthday"  })
-@XmlRootElement
-public class Human {
+public class Human implements Serializable {
 
     private String lastName;
 
@@ -23,6 +25,7 @@ public class Human {
 
     private Date birthday;
 
+//    @XmlElement
     public String getLastName() {
         return lastName;
     }
@@ -31,6 +34,7 @@ public class Human {
         this.lastName = lastName;
     }
 
+//    @XmlElement
     public String getFirstName() {
         return firstName;
     }
@@ -39,6 +43,7 @@ public class Human {
         this.firstName = firstName;
     }
 
+//    @XmlElement
     public String getMidlleName() {
         return midlleName;
     }
@@ -47,6 +52,7 @@ public class Human {
         this.midlleName = midlleName;
     }
 
+//    @XmlElement
     public Date getBirthday() {
         return birthday;
     }

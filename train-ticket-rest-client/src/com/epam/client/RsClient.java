@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 public class RsClient {
-    private static final String baseURL = "http://epkzkarw0338.moscow.epam.com:45054/train-ticket-rest-1.0/rest/";
+    private static final String baseURL = "http://epkzkarw0338.moscow.epam.com:45054/train-ticket-rest-1/api/";
     private static final String JSON_SERVER = "TicketJSONService";
     private static final String XML_SERVER = "TicketXMLService";
     private static final String GET = "/getTicket/";
@@ -43,11 +43,14 @@ public class RsClient {
             while (sc.hasNextLine()) {
                 String command = sc.nextLine();
                 if (command.equalsIgnoreCase(JSON)) {
+
                     serveseURL = baseURL + JSON_SERVER;
+
                     typeAnswer = MediaType.APPLICATION_JSON;
 
                 } else if (command.equalsIgnoreCase(XML)) {
                     serveseURL = baseURL + XML_SERVER;
+
                     typeAnswer = MediaType.APPLICATION_XML;
                 } else {
                     System.out.println(Utils.INCORRECT_PARAM);
@@ -66,8 +69,7 @@ public class RsClient {
                             System.out.println(CHANGE_TYPE);
                         }catch(UniformInterfaceException e){
                                System.out.println("ticket not found");
-                               System.out.println(CHANGE_TYPE);
-                        }
+                               System.out.println(CHANGE_TYPE); }
                         } else if (arguments[Utils.TYPE_COMMAND].equalsIgnoreCase(Utils.REMOVE_TICKET)) {
                             webResource = client.resource((serveseURL + DELETE + arguments[Utils.TICKET_ID_PARAM]));
                             response = webResource.type(typeAnswer).delete(ClientResponse.class);

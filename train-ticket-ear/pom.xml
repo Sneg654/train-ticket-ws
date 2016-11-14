@@ -13,13 +13,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-multipart</artifactId>
+            <version>1.8</version>
+        </dependency>
+        <dependency>
             <artifactId>train-ticket-service</artifactId>
             <groupId>train-ticket</groupId>
             <version>1.0</version>
             <type>ejb</type>
         </dependency>
         <dependency>
-            <artifactId>train-ticket-rest</artifactId>
+            <artifactId>train-ticket-rest-1</artifactId>
             <groupId>train-ticket</groupId>
             <version>1.0</version>
             <type>war</type>
@@ -45,7 +50,7 @@
 
                         </ejbModule>
                         <webModule>
-                            <artifactId>train-ticket-rest</artifactId>
+                            <artifactId>train-ticket-rest-1</artifactId>
                             <groupId>train-ticket</groupId>
                             <bundleFileName>ticket-rest.war</bundleFileName>
                         </webModule>

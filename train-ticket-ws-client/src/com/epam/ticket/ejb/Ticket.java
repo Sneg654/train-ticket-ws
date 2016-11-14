@@ -1,7 +1,7 @@
 
 package com.epam.ticket.ejb;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -45,7 +45,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
         "costTicket",
         "statusTicket",
         "human"})
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Ticket {
 
     @XmlSchemaType(name = "dateTime")

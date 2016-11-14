@@ -30,7 +30,7 @@ public class TrainTicketJaxWsServersImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:45054/train-ticket-service-1.0/TicketServer?wsdl");
+            url = new URL("http://epkzkarw0338.moscow.epam.com:45054/train-ticket-service-1.0/TicketServer?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
