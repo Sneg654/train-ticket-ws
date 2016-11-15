@@ -1,6 +1,6 @@
 package com.epam.rs.web.rest.user.rest;
 
-import com.epam.rs.web.rest.user.ejb.Ticket;
+import com.epam.rs.web.rest.user.entity.Ticket;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
