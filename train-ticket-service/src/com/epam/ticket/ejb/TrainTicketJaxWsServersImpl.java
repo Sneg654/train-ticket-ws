@@ -22,6 +22,11 @@ public class TrainTicketJaxWsServersImpl implements TrainTicketJaxWsServers {
     public static int currentNumber = 100;
     public static final String BOOKED = "BOOKED";
     public static final String PAID = "PAID";
+    private static final String TICKET_NOT_FOUND = "ticket not found";
+    private static final String TICKET_REMOVED =  "ticket was removed";
+    private static final String TICKET_INSUFICCIENT =  "ticket was removed";
+    private static final String TICKET =  "ticked #" ;
+    private static final String DELIVERY =  " paid, delivery " ;
     private static Map<Integer, Ticket> tickets = new HashMap<Integer, Ticket>();
     static {
      tickets= StartCollection.getCollection(tickets);
@@ -58,12 +63,12 @@ public class TrainTicketJaxWsServersImpl implements TrainTicketJaxWsServers {
             summ = money - ticket.getCostTicket();
             if (summ >= 0) {
                 ticket.setStatusTicket(PAID);
-                returnMessage = "ticked #" + numberTicket + " paid, delivery " + summ;
+                returnMessage = TICKET + numberTicket + DELIVERY + summ;
             } else {
-                returnMessage = "you have insufficient funds";
+                returnMessage = TICKET_INSUFICCIENT;
             }
         } else {
-            returnMessage = "ticket not found";
+            returnMessage = TICKET_NOT_FOUND;
         }
         return returnMessage;
     }
@@ -75,9 +80,9 @@ public class TrainTicketJaxWsServersImpl implements TrainTicketJaxWsServers {
         String returnMessage;
         Ticket ticket = tickets.remove(numberTicket);
         if (ticket != null) {
-            returnMessage = "ticket was removed";
+            returnMessage = TICKET_REMOVED;
         } else {
-            returnMessage = "ticket #" + numberTicket + " not found";
+            returnMessage = TICKET_NOT_FOUND;
         }
 
         return returnMessage;

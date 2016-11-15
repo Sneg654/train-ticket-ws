@@ -1,6 +1,6 @@
 package com.epam.rs.web.rest.user.rest;
 
-import com.epam.rs.web.rest.user.ejb.Ticket;
+import com.epam.rs.web.rest.user.entity.Ticket;
 
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
@@ -13,7 +13,12 @@ public abstract class TicketService {
     public static int currentNumber = 100;
     protected static final String BOOKED = "BOOKED";
     protected static final String PAID = "PAID";
-    protected static Map<Integer, Ticket> tickets = new HashMap<Integer, Ticket>();
+    protected static final String TICKET_NOT_FOUND = "ticket not found";
+    protected static final String TICKET_REMOVED =  "ticket was removed";
+    protected static final String TICKET_INSUFICCIENT =  "ticket was removed";
+    protected static final String TICKET =  "ticked #" ;
+    protected static final String DELIVERY =  " paid, delivery " ;
+    protected static Map<Integer, Ticket> tickets = new HashMap<>();
 
     static {
     tickets= StartCollection.getCollection(tickets);
@@ -47,12 +52,12 @@ public abstract class TicketService {
             if (summ >= 0) {
                 ticket.setStatusTicket(PAID);
                 tickets.put(innerTicket.getNumberTicket(), ticket);
-                returnMessage = "ticked #" + innerTicket.getNumberTicket() + " paid, delivery " + summ;
+                returnMessage = TICKET + innerTicket.getNumberTicket() + DELIVERY + summ;
             } else {
-                returnMessage = "you have insufficient funds";
+                returnMessage = TICKET_INSUFICCIENT;
             }
         } else {
-            returnMessage = "ticket not found";
+            returnMessage =TICKET_NOT_FOUND;
         }
         return Response.ok(returnMessage).build();
     }
@@ -62,9 +67,9 @@ public abstract class TicketService {
         String returnMessage;
         Ticket ticket = tickets.remove(numberTicket);
         if (ticket != null) {
-            returnMessage = "ticket was removed";
+            returnMessage =TICKET_REMOVED;
         } else {
-            returnMessage = "ticket #" + numberTicket + " not found";
+            returnMessage = TICKET_NOT_FOUND;
         }
 
         return Response.ok(returnMessage).build();

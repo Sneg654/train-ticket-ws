@@ -34,7 +34,7 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "findTicket", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.FindTicket")
     @ResponseWrapper(localName = "findTicketResponse", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.FindTicketResponse")
-    public Ticket findTicket(
+    Ticket findTicket(
         @WebParam(name = "numberTicket", targetNamespace = "")
         Integer numberTicket);
 
@@ -49,7 +49,7 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "payTicket", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.PayTicket")
     @ResponseWrapper(localName = "payTicketResponse", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.PayTicketResponse")
-    public String payTicket(
+    String payTicket(
         @WebParam(name = "numberTicket", targetNamespace = "")
         Integer numberTicket,
         @WebParam(name = "money", targetNamespace = "")
@@ -69,7 +69,7 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "bookedTicket", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.BookedTicket")
     @ResponseWrapper(localName = "bookedTicketResponse", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.BookedTicketResponse")
-    public Integer bookedTicket(
+    Integer bookedTicket(
         @WebParam(name = "startCity", targetNamespace = "")
         String startCity,
         @WebParam(name = "endCity", targetNamespace = "")
@@ -91,7 +91,7 @@ public interface TicketServer {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "removeTicket", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.RemoveTicket")
     @ResponseWrapper(localName = "removeTicketResponse", targetNamespace = "http://ejb.ticket.epam.com/", className = "com.epam.ticket.ejb.RemoveTicketResponse")
-    public String removeTicket(
+    String removeTicket(
         @WebParam(name = "numberTicket", targetNamespace = "")
         Integer numberTicket);
 

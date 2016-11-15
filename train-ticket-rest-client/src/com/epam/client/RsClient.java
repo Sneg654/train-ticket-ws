@@ -30,10 +30,14 @@ public class RsClient {
             "pt,100,5000- for payment  ticket with number 100, sum 5000\n" +
             "bt,FirstName,LastName,MiddleName,BirthDay(format:DD.MM.YYYY),ArrivaCity,DepartureCity,AriveDate(format:DD.MM.YYYY),DepartureDate(format:DD.MM.YYYY)\n";
     public static final String CHANGE_TYPE = "for change type date enter change";
-    private static String serveseURL = null;
-    private static String typeAnswer = null;
-    private static WebResource webResource = null;
+    private static final String TICKET_NOT_FOUND = "ticket not found";
+    private static String serveseURL;
+    private static String typeAnswer;
+    private static WebResource webResource;
     private static ClientResponse response;
+
+
+
 
     public static void main(String[] args) {
         try {
@@ -43,14 +47,10 @@ public class RsClient {
             while (sc.hasNextLine()) {
                 String command = sc.nextLine();
                 if (command.equalsIgnoreCase(JSON)) {
-
                     serveseURL = baseURL + JSON_SERVER;
-
                     typeAnswer = MediaType.APPLICATION_JSON;
-
                 } else if (command.equalsIgnoreCase(XML)) {
                     serveseURL = baseURL + XML_SERVER;
-
                     typeAnswer = MediaType.APPLICATION_XML;
                 } else {
                     System.out.println(Utils.INCORRECT_PARAM);
@@ -68,7 +68,7 @@ public class RsClient {
                             System.out.println(ticket);
                             System.out.println(CHANGE_TYPE);
                         }catch(UniformInterfaceException e){
-                               System.out.println("ticket not found");
+                               System.out.println(TICKET_NOT_FOUND);
                                System.out.println(CHANGE_TYPE); }
                         } else if (arguments[Utils.TYPE_COMMAND].equalsIgnoreCase(Utils.REMOVE_TICKET)) {
                             webResource = client.resource((serveseURL + DELETE + arguments[Utils.TICKET_ID_PARAM]));

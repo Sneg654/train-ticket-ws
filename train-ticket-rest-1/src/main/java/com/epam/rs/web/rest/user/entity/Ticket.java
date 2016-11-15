@@ -1,8 +1,6 @@
-package com.epam.rs.web.rest.user.ejb;
+package com.epam.rs.web.rest.user.entity;
 
 //import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;

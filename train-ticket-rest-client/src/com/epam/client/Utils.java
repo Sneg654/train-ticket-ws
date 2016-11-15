@@ -60,14 +60,5 @@ public class Utils {
         return human;
     }
 
-    public static entity.Human getHuman1(String fisrstName, String lastName, String middleName, Date birthDay) {
-        entity.Human human = new entity.Human();
-        human.setFirstName(fisrstName);
-        human.setLastName(lastName);
-        human.setMidlleName(middleName);
-        human.setBirthday(birthDay);
 
-
-        return human;
-    }
 }

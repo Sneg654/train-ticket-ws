@@ -1,4 +1,4 @@
-package com.epam.rs.web.rest.user.ejb;
+package com.epam.rs.web.rest.user.entity;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
